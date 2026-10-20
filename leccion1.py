@@ -1,1 +1,1 @@
-print ("Hola soy Carlos Eduardo y estoy aprendiendo a programar en Python")
+print("Hola soy Carlos Eduardo y estoy aprendiendo a programar en Python")
