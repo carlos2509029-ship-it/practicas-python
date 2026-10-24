@@ -1,5 +1,5 @@
 # Se compara el valor de referencia vs el valor ingresado por el usuario
-limite = float(input("¿Cual es el límite de temperatura de trabajo del fabricante de tu equipo? "))
+limite = float(input("¿Cuál es el límite de temperatura de trabajo del fabricante de tu equipo? "))
 temperatura = float(input("Ingresa el valor actual de la temperatura de tu equipo: "))
 print(temperatura > limite) # ¿La temperatura es mayor al límite?
 print(temperatura < limite) # ¿La temperatura es menor al límite?
@@ -11,4 +11,4 @@ elif temperatura >= limite-10:
     print("\nADVERTENCIA: programar revisión")
 else:
     print("\nOperación Normal")
-
+print("Revisión terminada.")
