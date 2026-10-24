@@ -13,7 +13,7 @@ temp_referencia = 70
 delta = temp - temp_referencia
 
 if delta < 1:
-    print(f"El delta de {fase} es de {round(delta, 1)} tu instalación trabaja a temperatura normal.")
+print(f"El delta de {fase} es de {round(delta, 1)} tu instalación trabaja a temperatura normal.")
 elif delta <= 3:
     print(f"El delta de {fase} es de {round(delta, 1)} tu instalación presenta falla leve se recomienda dar seguimiento.")
 elif delta <= 15:
