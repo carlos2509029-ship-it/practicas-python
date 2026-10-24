@@ -8,6 +8,6 @@ kelvin = temperatura + 273.15
 fahrenheit = temperatura * 9/5 + 32
 
 print("\n================================CONVERSOR DE TEMPERATURA==================================    ")
-print(f"=    Convertido a grados Kelvin los {temperatura} °C de tu {equipo} son equivalentes a {round(kelvin, 1)} K ")
+print(f"=    Convertido a Kelvin los {temperatura} °C de tu {equipo} son equivalentes a {round(kelvin, 1)} K ")
 print(f"=    Convertido a grados Fahrenheit los {temperatura} °C de tu {equipo} son equivalentes a {round(fahrenheit, 1)} °F")
 print("==========================================================================================\n\n")
