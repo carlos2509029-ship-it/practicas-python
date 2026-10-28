@@ -1,81 +1,69 @@
 # Programa para una caja registradora.
-# Asignamos el valor del IVA.
-TASA_IVA = 0.16
 
-# Asignamos valor 'cero pesos' al subtotal.
+# Fijamos el valor del IVA.
+IVA = 0.16
+
+# Fijamos en 'ceros' el valor de subtotal.
 subtotal = 0.0
 
-# Asignamos valor 'cero artículos' a articulos
+# Fijamos la cantidad de productos vendidos en 'ceros'.
 articulos = 0
 
 # Inicia ciclo 'While'.
 while True:
-    # Pedimos nombre del artículo
-    nombre = input("\nNombre del producto: (escribe 'fin' para terminar): ").strip()
+    nombre = input("Ingresa el nombre del producto: (Escribe 'fin' si han terminado las compras: )").strip
 
-    # Evitamos que haya confusión entre mayúsculas y minúsculas y determinamos cuando acaba While.
+    # Para evitar confusiones entre mayusc/minusc.
     if nombre.lower() == "fin":
         break
 
-    # También evitamos que no se ingrese nombre de algún producto
+    # Para que no quede vacio el nombre del producto.
     if nombre == "":
-        print("El nombre no puede estar vacío.")
+        print("El nombre del producto no puede quedar en blanco, intenta de nuevo.")
         continue
 
-    # Validamos precio
+    # Ingresar precios.
     while True:
         try:
-            precio = float(input("Precio del producto: $"))
-            # Aseguramos que no se ingrese valor $0.
+            precio = float(input("Ingresa el precio del producto: $ "))
+
+            # Para evitar que este campo quede en 'ceros'.
             if precio <= 0:
-                print("El precio debe ser mayor que cero.")
+                print("En la tienda no tenemos artículos con precio $ 0")
             else:
                 break
+        
+        # Para evitar entradas no númericas.     
         except ValueError:
-            print("Ingresa un precio válido.")
+            print ("Ingresa una cantidad válida.")
 
-    # Validamos cantidad
+    # Ingresar Cantidad de artículos.
     while True:
         try:
-            cantidad = int(input("Cantidad: "))
-            # Evitamos que se coloquen cantidades de 'cero'.
-            if cantidad < 1:
-                print("La cantidad debe ser al menos 1.")
+            cantidad = input(f"Ingresa la cantidad de {nombre} que se compran.")
+
+            # Para evitar que se capturen cantidades negativas o en ceros.
+            if cantidad <= 0:
+                print("Al menos debe de ingresar 1 artículo.")
             else:
                 break
-        except ValueError:
-            print("Ingresa una cantidad entera válida.")
 
-    # Calcular subtotal del producto
+        # Para evitar entradas no válidas.
+        except ValueError:
+            print("Ingrese una cantidad entera válida")
+
+    # Calculamos el subtotal de las compras.
     subtotal_producto = precio * cantidad
 
-    # Acumulamos importes y cantidades
+    # Acumulamos en las listas, precios y cantidades.
     subtotal += subtotal_producto
-    articulos += cantidad
-    print(f"{nombre} x {cantidad} = ${subtotal_producto:.2f}")
+    cantidad_productos += cantidad
 
-# Imprimimos ticket
-iva = subtotal * TASA_IVA
-total = round(subtotal + iva, 2)
-print(f"\nNúmero de artículos: {articulos}")
-print(f"\nSubtotal:            ${subtotal:.2f}")
-print(f"\nIVA (16%):           ${iva:.2f}")
-print(f"\nTOTAL A PAGAR:       ${total:.2f}")
+    # Imprimimos subtotal de productos.
+    print(f"{nombre} x {cantidad} = $ {subtotal_producto:.2f}")
 
-# Cobramos al cliente
-while True:
-    try:
-        pago = float(input("¿Con cuánto paga el cliente? $"))
-        if pago < total:
-            faltante = total - pago
-            print(f"Faltan ${faltante:.2f}. Intenta nuevamente.")
-        else:
-            break
-    except ValueError:
-        print("Ingresa una cantidad válida.")
 
-# Calculamos el cambio
-cambio = pago - total
-print(f"\nPago recibido: ${pago:.2f}")
-print(f"Cambio:        ${cambio:.2f}")
-print("¡Gracias por su compra, vuelva pronto!")
+
+
+
+    
